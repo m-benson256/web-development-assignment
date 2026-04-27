@@ -1,0 +1,262 @@
+   :root {
+      --navy: #0b2545;
+      --gold: #d4a017;
+      --gold-soft: #f1c75b;
+      --cream: #fdf6e3;
+      --brick: #8b3a1f;
+      --ink: #1a1a1a;
+      --muted: #5b6470;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 75vh;
+      min-height: 460px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('/images/ntare-building.png') center/cover no-repeat;
+      animation: kenburns 18s ease-in-out infinite alternate;
+      filter: brightness(0.55);
+    }
+
+    @keyframes kenburns {
+      0%   { transform: scale(1)    translate(0, 0); }
+      100% { transform: scale(1.18) translate(-2%, -3%); }
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,37,69,0.35) 0%, rgba(11,37,69,0.85) 100%);
+    }
+
+    .hero-content {
+      position: relative; 
+      z-index: 2;
+      padding: 0 1.5rem;
+      animation: fadeUp 1.4s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: medium;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero .tag {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 1.2rem;
+      border: 2px solid var(--gold);
+      color: var(--gold-soft);
+      font-style: italic;
+      letter-spacing: 4px;
+      font-size: 0.95rem;
+    }
+
+    .hero .scroll-cue {
+      position: absolute; bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold-soft);
+      font-size: 1.6rem;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50%      { transform: translate(-50%, 10px); }
+    }
+    /* ===== NAV ===== */
+    nav.tabs {
+      
+      position: sticky;
+      z-index: 10;
+      background: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3px;
+      padding: 5px;
+    }
+    nav.tabs a {
+      color: var(--cream);
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 10px;
+      transition: all 1s ease;
+    }
+    nav.tabs a:hover { background: var(--gold); 
+                       color: var(--navy); }
+
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      color: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;}
+   
+   
+   
+   table.info{width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(11,37,69,0.12);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table.info th, table.info td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid #eee;
+    }
+    table.info th {
+      background: var(--navy);
+      color: var(--gold-soft);
+      width: 28%;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    table.info tr:hover td { background: #fffbe6; transition: 0.3s; }
+
+    /* ===== PILLARS ===== */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .pillar {
+      background: #fff;
+      border-top: 4px solid var(--gold);
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 6px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+    .pillar:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(11,37,69,0.18);
+    }
+    .pillar h3 {
+      color: var(--navy);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===== LION SECTION ===== */
+    .lion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .lion-grid img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-12px) rotate(-0.5deg); }
+    }
+    @media (max-width: 720px) {
+      .lion-grid { grid-template-columns: 1fr; }
+    }
+
+    .motto-box {
+      background: linear-gradient(135deg, var(--navy), #143a6b);
+      color: var(--gold-soft);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 6px solid var(--gold);
+    }
+    .motto-box .motto {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    /* ===== FOOTER / SOCIAL ===== */
+    footer {
+      background: var(--navy);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+    }
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold-soft);
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .socials a:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-4px) rotate(-6deg);
+    }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
