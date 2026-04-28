@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ntare School | Academics - Subjects, Sports & Discipline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf5;
+            color: #1e2a2e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Academics page header (simplified, only academics) */
+        .academics-header {
+            background: linear-gradient(105deg, #f7ede3 0%, #fef7ef 100%);
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #ecd9c6;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #7b3f1a;
+            margin-bottom: 12px;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            color: #2c463e;
+            max-width: 700px;
+        }
+
+        .school-tag {
+            display: inline-block;
+            background: #e3c9b1;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4f2d12;
+            margin-bottom: 20px;
+        }
+
+        /* Tabs for academics sections */
+        .academics-tabs {
+            background: white;
+            border-bottom: 2px solid #f0e2d4;
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 0 0 0;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 40px 40px 0 0;
+            transition: 0.2s;
+            font-family: inherit;
+            color: #4f5e5a;
+        }
+
+        .tab-btn.active {
+            background: #f9f0e8;
+            color: #b45f2b;
+            border-bottom: 3px solid #b45f2b;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #f4ece4;
+            color: #7b582e;
+        }
+
+        /* Main content */
+        .academics-main {
+            padding: 56px 0 70px;
+            background: white;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadein 0.35s ease;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3a2a1f;
+            margin-bottom: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: #d9b48b;
+            margin-top: 8px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
+        }
+
+        .card-subject,
+        .sport-card,
+        .discipline-card {
+            background: #fefaf5;
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s;
+            border: 1px solid #f0e2d4;
+        }
+
+        .card-subject:hover,
+        .sport-card:hover,
+        .discipline-card:hover {
+            transform: translateY(-4px);
+            border-color: #e2cbb6;
+            box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #7b3f1a;
+        }
+
+        .subject-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .subject-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #f0ded0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subject-list li:before {
+            content: "📘";
+            font-size: 0.85rem;
+        }
+
+        .discipline-list {
+            margin-top: 12px;
+        }
+
+        .discipline-list li {
+            margin-bottom: 14px;
+            font-weight: 500;
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .disc-badge {
+            background: #e9ddd1;
+            display: inline-block;
+            min-width: 100px;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #5a3a21;
+            text-align: center;
+        }
+
+        .info-highlights {
+            background: #f7f3ed;
+            margin-top: 48px;
+            padding: 32px 28px;
+            border-radius: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .highlight-item {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .highlight-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: #8b5a2e;
+        }
+
+        /* Agriculture lab highlight - special mention */
+        .agriculture-spotlight {
+            background: #f2e8de;
+            border-radius: 24px;
+            padding: 24px 28px;
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+            justify-content: space-between;
+        }
+
+        .agri-text h3 {
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        .agri-badge {
+            background: #b45f2b;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 760px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            .tabs-nav {
+                justify-content: center;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+            .info-highlights {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body style="background-image: url('C:\Users\lenovo\Desktop\web-development-assignment\images\FormatFactoryLab-800x725.jpg'); background-size: cover;">
+     <div style="background-color: rgba(255, 255, 255, 0.641); padding: 20px;"></div>
+
+    <!-- academics header - pure academics focus -->
+    <div class="academics-header">
+        <div class="container header-content">
+            <span class="school-tag">📖 NTARE SCHOOL • THE LION ROARS</span>
+            <h1>Academics</h1>
+            <p>Rigorous curriculum, holistic development, and excellence in every discipline. Explore subjects, sports, and the character that defines the Lion spirit.</p>
+        </div>
+    </div>
+
+    <!-- Tabs navigation: SUBJECTS TAUGHT, SPORTS, DISCIPLINE -->
+    <div class="academics-tabs">
+        <div class="container tabs-nav">
+            <button class="tab-btn active" data-tab="subjects">📚 SUBJECTS TAUGHT</button>
+            <button class="tab-btn" data-tab="sports">⚽ SPORTS</button>
+            <button class="tab-btn" data-tab="discipline">🛡️ DISCIPLINE</button>
+        </div>
+    </div>
+
+    <!-- Dynamic content -->
+    <div class="academics-main">
+        <div class="container">
+            <!-- SUBJECTS PANE -->
+            <div id="subjects-pane" class="tab-pane active-pane">
+                <div class="section-title">Subjects Taught</div>
+                <p style="margin-bottom: 28px; font-size: 1.05rem;">Ntare School offers a comprehensive curriculum aligned with national standards. Our 97+ professional teachers deliver both sciences and humanities with practical approaches, research facilities, and the renowned Crichton Memorial Library & Computer Lab.</p>
+                
+                <div class="grid-cards">
+                    <div class="card-subject">
+                        <div class="card-icon">🔬</div>
+                        <h3>Sciences</h3>
+                        <ul class="subject-list">
+                            <li>Biology</li>
+                            <li>Chemistry</li>
+                            <li>Physics</li>
+                            <li>Agriculture (practical labs)</li>
+                            <li>Computer Science</li>
+                        </ul>
+                    </div>
+                    <div class="card-subject">
+                        <div class="card-icon">📖</div>
+                        <h3>Humanities & Arts</h3>
+                        <ul class="subject-list">
+                            <li>History & Political Education</li>
+                            <li>Geography</li>
+                            <li>Literature in English</li>
+                            <li>Religious Studies</li>
+                            <li>Fine Art & Entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="card-subject">
+                        <div class="card-icon">🧮</div>
+                        <h3>Mathematics & Technology</h3>
+                        <ul class="subject-list">
+                            <li>Pure Mathematics</li>
+                            <li>Additional Mathematics</li>
+                            <li>ICT & Coding</li>
+                            <li>Robotics Club</li>
+                        </ul>
+                    </div>
+                    <div class="card-subject">
+                        <div class="card-icon">🌍</div>
+                        <h3>Languages & Vocational</h3>
+                        <ul class="subject-list">
+                            <li>English Language</li>
+                            <li>Kiswahili / French</li>
+                            <li>Runyankore (Local language)</li>
+                            <li>Technical Drawing & Woodwork</li>
+                            <li>Food & Nutrition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Agriculture practical highlight -->
+                <div class="agriculture-spotlight">
+                    <div class="agri-text">
+                        <span class="agri-badge">🌾 HANDS-ON LEARNING</span>
+                        <h3>Agriculture Students conducting a practical in the Agriculture Laboratory</h3>
+                        <p>State-of-the-art agricultural lab with soil analysis tools, greenhouse projects, and sustainable farming demonstrations. Students engage in research and real-world agribusiness skills.</p>
+                    </div>
+                    <div style="font-size: 3rem;">🌱🔬</div>
+                </div>
+
+                <!-- Scholarship & teachers info from original -->
+                <div class="info-highlights">
+                    <div class="highlight-item">
+                        <h4>🏆 Scholarship Facility</h4>
+                        <p>Full scholarships offered to the best student that scores above the set mark in each class. Partial scholarships available to every student that attains the set mark.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>👩‍🏫 Professional Teachers</h4>
+                        <p>Ntare School is equipped with 97 professional and diligent teachers focused on student-learning to produce the best grades.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>📚 Book Library & Store</h4>
+                        <p>The Chrichton Memorial Centre hosts the School Library and Computer Laboratory. Fully staffed with research books, textbooks from all disciplines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPORTS PANE -->
+            <div id="sports-pane" class="tab-pane">
+                <div class="section-title">Sports & Athletics</div>
+                <p style="margin-bottom: 20px;">At Ntare School, sports build leadership, teamwork and resilience. Our Lions compete at district, national and East African levels. Modern facilities include a floodlit pitch, basketball courts, swimming pool and gymnasium.</p>
+                <div class="grid-cards">
+                    <div class="sport-card">
+                        <div class="card-icon">⚽</div>
+                        <h3>Football (Soccer)</h3>
+                        <p>The Lions football team — annual tournaments, inter-house rivalries, and feeder programs. Multiple regional championships and alumni playing in national leagues.</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="card-icon">🏀</div>
+                        <h3>Basketball</h3>
+                        <p>Indoor & outdoor courts. Boys and girls teams — reigning regional champions. Weekly skills camps and competitive fixtures.</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="card-icon">🏉</div>
+                        <h3>Rugby & Athletics</h3>
+                        <p>Rugby 7s, 15s, track & field events, cross-country. Annual Sports Gala and inter-school athletics meets.</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="card-icon">🏊</div>
+                        <h3>Swimming & Tennis</h3>
+                        <p>25-meter swimming pool, tennis academy, table tennis championships. Sports science and professional coaching.</p>
+                    </div>
+                </div>
+                <div class="info-highlights" style="background: #f3ede6;">
+                    <div class="highlight-item">
+                        <h4>🥇 Major Achievements</h4>
+                        <p>National football silver medalists (2024), USSSA basketball champions (2023), multiple athletics records, East Africa rugby qualifiers.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🏟️ World-Class Facilities</h4>
+                        <p>Floodlit main pitch, fully equipped gym, changing rooms, physiotherapy support, and dedicated sports science lab.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🤝 Sportsmanship Values</h4>
+                        <p>Emphasis on fair play, discipline on and off the field, leadership through captaincy, and mentorship programs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISCIPLINE PANE -->
+            <div id="discipline-pane" class="tab-pane">
+                <div class="section-title">Discipline & Character Formation</div>
+                <p style="margin-bottom: 28px;">Discipline at Ntare School is a cornerstone — cultivating self-respect, responsibility, and moral integrity. Our balanced code of conduct blends firmness with mentorship to produce well-rounded leaders.</p>
+                <div class="grid-cards">
+                    <div class="discipline-card">
+                        <h3>🏅 Core Values</h3>
+                        <ul class="discipline-list">
+                            <li><span class="disc-badge">Integrity</span> – Honesty in academics & conduct</li>
+                            <li><span class="disc-badge">Respect</span> – For staff, peers, and property</li>
+                            <li><span class="disc-badge">Responsibility</span> – Ownership of actions & duties</li>
+                            <li><span class="disc-badge">Punctuality</span> – Time management excellence</li>
+                        </ul>
+                    </div>
+                    <div class="discipline-card">
+                        <h3>📜 Code of Conduct</h3>
+                        <ul class="discipline-list">
+                            <li><span class="disc-badge">Uniform & Grooming</span> – High standards always</li>
+                            <li><span class="disc-badge">Anti-Bullying</span> – Zero tolerance, safe environment</li>
+                            <li><span class="disc-badge">Academic Integrity</span> – No cheating, honor system</li>
+                            <li><span class="disc-badge">Attendance</span> – Full participation expected</li>
+                        </ul>
+                    </div>
+                    <div class="discipline-card">
+                        <h3>🧑‍🏫 Mentorship & Support</h3>
+                        <ul class="discipline-list">
+                            <li><span class="disc-badge">Guidance Counseling</span> – Professional support staff</li>
+                            <li><span class="disc-badge">Prefect System</span> – Student leadership & democracy</li>
+                            <li><span class="disc-badge">Restorative Practices</span> – Mediation & growth</li>
+                            <li><span class="disc-badge">Parent Collaboration</span> – Workshops & engagement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-highlights" style="background: #f2ede7;">
+                    <div class="highlight-item">
+                        <h4>🏆 Awards & Recognition</h4>
+                        <p>“Most Disciplined School” Mbarara region (2022, 2024). Leadership camps and character awards each term.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>⏰ Daily Routine</h4>
+                        <p>Morning parade, structured study, co-curricular engagement, evening prep — building discipline as a lifelong habit.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h4>🤝 Alumni Legacy</h4>
+                        <p>Notable alumni credit Ntare’s discipline for success in law, medicine, military, enterprise, and public service.</p>
+                    </div>
+                </div>
+                <!-- extra quote: discipline embedded in academics -->
+                <div style="margin-top: 32px; padding: 20px; background: #f9f3eb; border-radius: 28px; text-align: center; font-style: italic;">
+                    "Discipline is the bridge between goals and accomplishment." — Ntare School Motto: Fortiter in Re (Courageously in Deed)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- simple footer (only to close page professionally but no extra navigation) -->
+    <footer style="background: #102320; color: #e7dacb; padding: 28px 0; margin-top: 20px; text-align: center; font-size: 0.85rem;">
+        <div class="container">
+            <p>📚 Ntare School — Academics Division | The Lion Roars | Excellence in Subjects, Sports & Discipline</p>
+            <p style="margin-top: 8px;">📍 Ntare Road, Mbarara | 📞 039-323-8192 | ✉ ntare@ntareschool.sc.ug</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching logic for SUBJECTS / SPORTS / DISCIPLINE
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const subjectsPane = document.getElementById('subjects-pane');
+        const sportsPane = document.getElementById('sports-pane');
+        const disciplinePane = document.getElementById('discipline-pane');
+        
+        function activateTab(tabId) {
+            // Hide all panes
+            subjectsPane.classList.remove('active-pane');
+            sportsPane.classList.remove('active-pane');
+            disciplinePane.classList.remove('active-pane');
+            
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected pane and mark button active
+            if (tabId === 'subjects') {
+                subjectsPane.classList.add('active-pane');
+                const activeBtn = document.querySelector('.tab-btn[data-tab="subjects"]');
+                if (activeBtn) activeBtn.classList.add('active');
+            } else if (tabId === 'sports') {
+                sportsPane.classList.add('active-pane');
+                const activeBtn = document.querySelector('.tab-btn[data-tab="sports"]');
+                if (activeBtn) activeBtn.classList.add('active');
+            } else if (tabId === 'discipline') {
+                disciplinePane.classList.add('active-pane');
+                const activeBtn = document.querySelector('.tab-btn[data-tab="discipline"]');
+                if (activeBtn) activeBtn.classList.add('active');
+            }
+        }
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const tabValue = button.getAttribute('data-tab');
+                if (tabValue === 'subjects') activateTab('subjects');
+                else if (tabValue === 'sports') activateTab('sports');
+                else if (tabValue === 'discipline') activateTab('discipline');
+            });
+        });
+        
+        // Ensure that subjects pane is active by default
+        if (!subjectsPane.classList.contains('active-pane')) {
+            activateTab('subjects');
+        }
+    </script>
+</body>
+</html>
