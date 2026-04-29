@@ -93,6 +93,11 @@
       50%      { transform: translate(-50%, 10px); }
     }
     /* ===== NAV ===== */
+nav{
+   position:sticky;
+   top:0;
+   z-index:1000;
+}
     nav.tabs {
       
       position: sticky;
@@ -238,11 +243,12 @@
       flex-wrap: wrap;
     }
     .socials a {
-      display: inline-flex;
+      display: grid;
       align-items: center;
+       padding:50px;
       justify-content: center;
       width: 46px; height: 46px;
-      border-radius: 50%;
+      border-radius: 20%;
       background: transparent;
       border: 2px solid var(--gold);
       color: var(--gold-soft);
