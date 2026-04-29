@@ -4,25 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NTARE SCHOOL</title>
+    <style>
+        body {
+            background-color: #faf7f2;
+            padding: 50px;
+            margin: auto;
+        }
+        .gallarytitle {
+            text-align: center;
+            color: #252525;
+            margin-bottom: 20px;
+        }
+        .button-filter {
+            text-align: center;
+            button {
+                background-color: #68926a;
+                color: rgb(230, 221, 221);
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                margin: 10px;
+            } 
+        }
+        .filter-item {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            display: inline-block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            cursor: pointer;
+            
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            transition: transform 1 ease;
+        }
+    </style>
 </head>
 <body>
-    <h2 class="gallary">NTARE SCHOOL GALLERY</h2>
+    <h2 class="gallarytitle">NTARE SCHOOL GALLERY</h2>
     <div class="button-filter">
-        <button>ALL</button>
-        <button>CLASSROOMS</button>
-        <button>LIBRARY</button>
-        <button>CAMPUS</button>
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="classrooms">CLASSROOMS</button>
+        <button class="filter-btn" data-filter="library">LIBRARY</button>
+        <button class="filter-btn" data-filter="campus">CAMPUS</button>
     </div>
-    <div>
-        <img src="biglap.jpg" alt="The big lab" sizes="auto">
-        <img src="biologyclass.jpg" alt="Biology class in session">
-        <img src="ntareroudabout.jpeg" alt="School roundabout" sizes="auto">
-        <img src="oncampus.jpg" alt="Campus areal view">
-        <img src="computerclass.jpg" alt="Computer session">
-        <img src="physicsclass.jpg" alt="Physics in session">
-        <img src="studentsinlib.jpg" alt="Library interior">
-        <img src="studentslibrary.jpg" alt="Library outside">
-        <img src="medicalcamp.jpg" alt="Student's medical camp">
+    <div class = "gallery">
+        <img src="webimages/biglap.jpg"  class="filter-item classrooms" alt="The big lab" sizes="auto" title="big lab">
+        <img src="webimages/biologyclass.jpg" class="filter-item classrooms" alt="Biology class in session" title="Class">
+        <img src="webimages/ntareroudabout.jpeg" class="filter-item campus" alt="School roundabout" title="campus">
+        <img src="webimages/oncampus.jpg" class="filter-item campus" alt="Campus areal view" title="campus">
+        <img src="webimages/computerclass.jpg" class="filter-item classrooms" alt="Computer session" title="Class">
+        <img src="webimages/physicsclass.jpg" class="filter-item classrooms" alt="Physics in session" title="Class">
+        <img src="webimages/studentsinlib.jpg" class="filter-item library" alt="Library interior" title="Library">
+        <img src="webimages/studentslibrary.jpg" class="filter-item library" alt="Library outside" title="Library">
+        <img src="webimages/medicalcamp.jpg" class="filter-item campus" alt="Student's medical camp" title="campus">
     </div>
+
+    <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const filterItems = document.querySelectorAll(".filter-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            filterItems.forEach(item => {
+                if (filterValue === "all") {
+                    item.style.display = "inline-block";
+                } else {
+                    if (item.classList.contains(filterValue)) {
+                        item.style.display = "inline-block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                }
+            });
+        });
+    });
+</script>
+
 </body>
+
 </html>
