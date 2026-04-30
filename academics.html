@@ -299,10 +299,59 @@
                 flex-direction: column;
             }
         }
+
+        :root {
+      --navy: #0b2545;
+      --gold: #d4a017;
+      --gold-soft: #f1c75b;
+      --cream: #fdf6e3;
+      --brick: #8b3a1f;
+      --ink: #1a1a1a;
+      --muted: #5b6470;
+    }
+
+    nav{
+   position:sticky;
+   top:0;
+   z-index:1000;
+}
+    nav.tabs {
+      
+      position: sticky;
+      z-index: 10;
+      background: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3px;
+      padding: 5px;
+    }
+    nav.tabs a {
+      color: var(--cream);
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 10px;
+      transition: all 1s ease;
+    }
+    nav.tabs a:hover { background: var(--gold); 
+                       color: var(--navy); }
     </style>
 </head>
 <body >
-     
+      <header class="header">
+            <h1 class="logo">NTARE SCHOOL</h1>
+             <nav class="tabs">
+                <a href="index.html">Home</a>   
+                <a href="aboutus.html">About Us</a>
+                <a href="academics.html">Academics</a>
+                <a href="gallary.html">Gallary</a>
+                <a href="contactUs.html">Contact Us</a>
+             </nav>
+        </header>
 
     <!-- academics header - pure academics focus -->
     <div class="academics-header">

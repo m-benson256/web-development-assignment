@@ -172,16 +172,15 @@ nav{
     }
     .pillar {
       background: #fff;
-      border-top: 4px solid var(--gold);
       padding: 1.5rem;
       text-align: center;
       border-radius: 6px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: default;
+      transition: transform 0.3s, box-shadow 1s;
+      cursor: pointer;
     }
     .pillar:hover {
-      transform: translateY(-6px);
+      transform: translateY(6px);
       box-shadow: 0 14px 30px rgba(11,37,69,0.18);
     }
     .pillar h3 {
