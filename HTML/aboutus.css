@@ -34,7 +34,7 @@
 
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('/images/ntare-building.png') center/cover no-repeat;
+      background: url('ntareroudabout.jpeg') center/cover no-repeat;
       animation: kenburns 18s ease-in-out infinite alternate;
       filter: brightness(0.55);
     }
