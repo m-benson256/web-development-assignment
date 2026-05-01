@@ -3,198 +3,523 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>My School</title>
+        <title>Ntare School</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="shortcut icon" href="favicon-32x32.png">
         
         <style>
+            :root {
+                  --navy: #0b2545;
+                  --gold: #d4a017;
+                  --gold-soft: #f1c75b;
+                  --cream: #fdf6e3;
+                  --brick: #8b3a1f;
+                  --ink: #1a1a1a;
+                  --muted: #5b6470;
+            }
+
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+
+            html { scroll-behavior: smooth; }
+
             body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('ntareschool.jpeg');
-    background-size: cover;
-    background-position: center;
-    
-    
-}
+                  font-family: Georgia, "Times New Roman", serif;
+                  background: var(--cream);
+                  color: var(--ink);
+                  line-height: 1.65;
+                  background-image: url('Lion2-1140x694.webp');
+                  backdrop-filter: blur(5px);
+            }
 
-     @keyframes kenburns {
-      0%   { transform: scale(1)    translate(0, 0); }
-      100% { transform: scale(1.18) translate(-2%, -3%); }
-    }
+            
+            .hero {
+                  position: relative;
+                  height: 40vh;
+                  min-height: 200px;
+                  overflow: hidden;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  color: #fff;
+            }
 
-.header{
-    background-color: #aeb38d;
-    color:white;
-    text-align: center;
-    padding: 15px;
-}
-.logo{
-    margin: 0;
-}
+            .hero-bg {
+                  position: absolute;
+                  inset: 0;
+                  background: url('ntareschool.jpeg') center/cover no-repeat;
+                  animation: kenburns 18s ease-in-out infinite alternate;
+                  filter: brightness(0.55);
+            }
 
-.navbar{
-    background-color: #600000;
-    padding:10px 0;
-}
+            @keyframes kenburns {
+                  0%   { transform: scale(1)    translate(0, 0); }
+                  100% { transform: scale(1.18) translate(-2%, -3%); }
+            }
 
-.nav-links{
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding:0;
-    margin :0;
-    justify-content: center;
-}
+            .hero-overlay {
+                  position: absolute;
+                  inset: 0;
+                  background: linear-gradient(180deg, rgba(139, 181, 233, 0.35) 0%, rgba(11,37,69,0.85) 100%);
+                  opacity: 1.0;
+            }
 
-.nav-links a{
-    text-decoration: none;
-    color: white;
-}
+            .hero-content {
+                  position: relative;
+                  z-index: 2;
+                  padding: 0 1.5rem;
+                  animation: fadeUp 1.4s ease-out;
+            }
 
-.nav-links a:hover{
-    color: #FFD700;
-}
+            @keyframes fadeUp {
+                  from { opacity: 0; transform: translateY(30px); }
+                  to   { opacity: 1; transform: translateY(0); }
+            }
 
-.about{
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+            .hero h1 {
+                  font-size: medium;
+                  font-weight: 900;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            }
 
-.section-title{
-    color: #8B0000;
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 3px solid;
-    padding-bottom: 10px;
-    display: inline-block;
-    width: 100%;
-}
+            .hero .tag {
+                  display: inline-block;
+                  margin-top: 1rem;
+                  padding: 0.4rem 1.2rem;
+                  border: 2px solid var(--gold);
+                  color: var(--gold-soft);
+                  font-style: italic;
+                  letter-spacing: 4px;
+                  font-size: 0.95rem;
+            }
+            @keyframes bounce {
+                  0%, 100% { transform: translate(-50%, 0); }
+                  50%      { transform: translate(-50%, 10px); }
+            }
 
-.about p{
+            
+            nav {
+                  position: sticky;
+                  top: 0;
+                  z-index: 1000;
+            }
 
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    text-align: justify;
-    margin-bottom: 15px;
-}
+            nav.tabs {
+                  position: sticky;
+                  z-index: 10;
+                  background: var(--navy);
+                  border-bottom: 3px solid var(--gold);
+                  display: flex;
+                  justify-content: center;
+                  flex-wrap: wrap;
+                  gap: 3px;
+                  padding: 5px;
+            }
 
-.btn{
-    background-color: #8B0000;
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
-}
+            nav.tabs a {
+                  color: var(--cream);
+                  text-decoration: none;
+                  padding: 0.6rem 1.1rem;
+                  font-size: 0.9rem;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  border-radius: 10px;
+                  transition: all 1s ease;
+            }
 
-.btn:hover{
+            nav.tabs a:hover {
+                  background: var(--gold);
+                  color: var(--navy);
+            }
 
-    background-color: #6B0000;
-    transform: translateY(-2px);
-    
-}
+            
+             .main {
+                  max-width: 1100px;
+                  margin: 0 auto;
+                  padding: 4rem 1.5rem;
+                 
+                  flex-wrap:wrap;
+                 height: 70vh;
+                  gap: 20px;
+                  color: #f5e4b4;
 
-.btn:active{
-    transform: translateY(0);
-}
+                  
+            }
 
-.footer{
-    background-color:  #1A1A2E;
-    color:#E5E5E5;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 50px;
-    font-size: 14px;
-    border-top: 3px solid;
-}
-
-.footer p {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    letter-spacing: 0.3px;
-}
-
-nav{
-   position:sticky;
-   top:0;
-   z-index:1000;
-}
-    nav.tabs {
+            .about {
+                  padding: 10px 10px;
+                  max-width: 50%;
+                  width: 100%;
+                  overflow-wrap:break-word;
+                  word-wrap: break-word;
+                  display: flex;
+                  flex-wrap: flex;
+                  height: 50vh;
+                  margin: 0 auto;
+                 
+                  flex: 1;
+                  position:relative;
+                  backdrop-filter: blur(50px);
+                  border-radius: 30px;
+                  border:2px solid #f5e4b4 ;
+                  box-shadow: 0 10px 20px rgba(27, 27, 27, 0.6);
+                  background: linear-gradient(180deg, rgba(139, 181, 233, 0.35) 0%, rgba(11,37,69,0.85) 100%);
+                  
+            }
+            .slideshow {
+       
+      flex: 1;
       
-      position: sticky;
-      z-index: 10;
-      background: var(--navy);
-      border-bottom: 3px solid var(--gold);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 3px;
-      padding: 5px;
+      height: 60vh;
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 2px solid var(--cream);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
-    nav.tabs a {
+    #main{
+      max-width: 100%;
+      width: 60%;
+      margin:20px ;
+      position:center;
+      
+    }
+    .slides { position: absolute; inset: 0; }
+    .slide {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1);
+      transition: transform 6s ease;
+    }
+    .slide.active { opacity: 1; z-index: 2; }
+    .slide.active img { transform: scale(1.12); }
+
+    .slide-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 40px 20px 22px;
+      background: linear-gradient(180deg, transparent, rgba(11,37,69,0.92));
       color: var(--cream);
-      text-decoration: none;
-      padding: 0.6rem 1.1rem;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 10px;
-      transition: all 1s ease;
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      text-align: center;
     }
-    nav.tabs a:hover { background: var(--gold); 
-                       color: var(--navy); }
+    .slide-caption strong {
+      display: block; color: var(--gold-soft);
+      font-size: 1.25rem; margin-bottom: 4px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+     .alumni-section {
+      max-width: 1100px; margin: 2rem auto;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(180deg, rgba(139, 181, 233, 0.35) 0%, rgba(11,37,69,0.85) 100%);
+      border: 2px solid var(--cream);
+      border-radius: 30px;
+      box-shadow: 0 10px 20px rgba(27,27,27,0.6);
+    }
+    .alumni-section h2 {
+      color: var(--cream); text-align: center;
+      font-size: 2rem; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .alumni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .alumni-card {
+      background: linear-gradient(160deg, rgba(253,246,227,0.95), rgba(243, 206, 113, 0.85));
+      color: var(--navy);
+      padding: 1.5rem; border-radius: 18px;
+      box-shadow: 0 6px 14px rgba(0,0,0,2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .alumni-card:hover {
+      transform: translateY(6px) translateX(6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.55);
+    }
+    .alumni-card .quote {
+      font-style: italic; font-size: 1rem; line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .alumni-card .name {
+      font-weight: bold; color: var(--brick);
+      letter-spacing: 1px; text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+    .alumni-card .year {
+      display: block; font-size: 0.8rem;
+      color: var(--muted); margin-top: 2px;
+    }
+
+    
+    
+             .overlay{
+                
+                height: 50vh;
+                max-height: 1000px;
+                position: absolute;
+                inset: 0;
+                background:linear-gradient(180deg, rgba(172, 203, 241, 0.35) 0%, rgba(171, 171, 190, 0.85) 100%); 
+                border-radius: 20px;
+                margin-top: 12px;
+                padding-top: 5px;
+             }
+            h2 {
+                  font-size: 2rem;
+                  color: var(--navy);
+                  
+                  display: inline-block;
+                  padding-bottom: 0.3rem;
+                  margin-bottom: 1.5rem;
+                  letter-spacing: 1px;
+            }
+
+            .section-title {
+                  color: var(--navy);
+                  font-size: 28px;
+                  text-align: center;
+                  text-decoration: none;
+                  margin-bottom: 20px;
+                  padding-bottom: 10px;
+                  display: inline-block;
+                  width: 100%;
+            }
+
+            .about p {
+                  font-size: 16px;
+                  line-height: 1.6;
+                  color: #fdf6e3;
+                  text-align: justify;
+                  margin-bottom: 10px;
+                 
+            }
+
+           
+
+            footer {
+                  background: var(--navy);
+                  color: var(--cream);
+                  align-content: center;
+                  padding: 3rem 1.5rem;
+                  margin-top: 3rem;
+                 
+                  
+                  padding-left: 50px;
+            }
+             
+            footer .mainfooter{
+                  display:flex;
+                  gap:200px;
+            }
+
+            footer .contacts {
+                 border: #468fe9 2px solid;
+                 border-radius: 10px;
+                 backdrop-filter: blur(200px);
+                 padding:5px;
+                 background:linear-gradient(180deg, rgba(218, 228, 240, 0.35) 0%, rgba(181, 182, 184, 0.85) 100%);
+                 transition: all 0.5s ease; 
+                 opacity: 0.9;
+            }
 
 
-:root {
-      --navy: #0b2545;
-      --gold: #d4a017;
-      --gold-soft: #f1c75b;
-      --cream: #fdf6e3;
-      --brick: #8b3a1f;
-      --ink: #1a1a1a;
-      --muted: #5b6470;
-}
+             .hours-section {
+      max-width: 800px; margin: 2rem auto;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(180deg, rgba(139, 181, 233, 0.35) 0%, rgba(11,37,69,0.85) 100%);
+      border: 2px solid var(--cream);
+      border-radius: 30px;
+      box-shadow: 0 10px 20px rgba(27,27,27,0.9);
+    }
+    .hours-section h2{
+      color: var(--navy); 
+      text-align: center;
+      font-size: 2rem; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hours-table {
+      width: 100%; border-collapse: collapse;
+      background: rgba(253,246,227,0.95); color: var(--navy);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+    .hours-table th, .hours-table td {
+      padding: 14px 18px; text-align: left;
+      border-bottom: 1px solid rgba(11,37,69,0.15);
+      font-size: 1rem;
+    }
+    .hours-table th {
+      background: var(--navy); color: var(--cream);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      font-size: 0.9rem;
+    }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table tr.closed td {
+      color: var(--brick); font-style: italic;
+      background: rgba(139,58,31,0.1);
+    }
+    .hours-table tr:hover:not(.closed) {
+      background: rgba(212,160,23,0.18);
+    }
+
         </style>
     </head>
     <body>
 
-        <header class="header">
-            <h1 class="logo">NTARE SCHOOL</h1>
-             <nav class="tabs">
+        <header class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                  <h1>Ntare School</h1>
+                  <div class="tag">THE LION ROARS · SINCE 1956</div>
+            </div>
+            
+        </header>
+
+        <nav class="tabs">
                 <a href="aboutus.html">About Us</a>
-                <a href="academics.html">Academics</a>
+                <a href="academics.html">Academics & Sports</a>
                 <a href="gallary.html">Gallery</a>
                 <a href="contactUs.html">Contact Us</a>
-             </nav>
-        </header>
+         </nav>
+           
+          <h2 class="section-title">Welcome to Ntare School</h2>
         
-        <section class="about">
-            <h2 class="section-title">Welcome to Ntare School</h2>
-            <p>Ntare School Welcomes you all to an exciting online survey of this Great School.
-                 Through this website, you are going to be able to receive and enjoy multiple and timely updates on our students’ academic performance, events, meetings and much more from the School.
+            
+            <section class="about">
 
-To know more about our School, scroll through the different pages of Our current Board of Governors, Staff, Academics, Sports, Alumni Fraternity and many others.
+                <p> <b> Ntare School</b> Welcomes you all to an exciting online survey of this Great School.
+                 Through this website, you are going to be able to receive and <em>enjoy multiple and timely updates on our students’ academic performance,</em> events, meetings and much more from the School.
 
-We wish you the best of what Ntare has to offer.
-Thank you.
+                 To know more about our School, scroll through the different pages of Our current Board of Governors, Staff, Academics, Sports, Alumni Fraternity and many others.
 
-The Lion Roars</p>
+                  We wish you the best of what Ntare has to offer.
+                   Thank you.
+                      <br>
+                  <strong>The Lion Roars</strong>
+                </p>
+         
+          
+             </section>
 
-           <button class="btn">Learn More</button>
+           <section class="slideshow" id="main">
+           <div class="slideshow" id="slideshow">
+        <div class="slides">
+        <div class="slide active">
+          <img src="ntareschool.jpeg" alt="The Roar - Better Your Best">
+          <div class="slide-caption"><strong>The Roar</strong>Better Your Best</div>
+        </div>
+        <div class="slide">
+          <img src="ntareroudabout.jpeg" alt="Ntare School Roundabout">
+          <div class="slide-caption"><strong>Our Campus</strong>The iconic roundabout entrance</div>
+        </div>
+        <div class="slide">
+          <img src="oncampus.jpg" alt="On Campus">
+          <div class="slide-caption"><strong>On Campus</strong>Modern learning facilities</div>
+        </div>
+        <div class="slide">
+          <img src="physicsclass.jpg" alt="Physics Class">
+          <div class="slide-caption"><strong>Academics</strong>Excellence in the classroom</div>
+        </div>
+        <div class="slide">
+          <img src="medicalcamp.jpg" alt="Medical Camp">
+          <div class="slide-caption"><strong>Community</strong>Outreach and medical camps</div>
+        </div>
+      </div>
+    </div>
+           
+           
         </section>
-        <footer class="footer">
-            <p>&copy;
-                 2026 Ntare School. All rights reserved.</p>
+        </section>
+
+ <section class="alumni-section" id="alumni">
+    <h2>Message From The Alumni</h2>
+    <div class="alumni-grid">
+      <div class="alumni-card">
+        <p class="quote">"Ntare gave me more than an education — it gave me the discipline and confidence
+          that shaped my career. The Lion in me still roars every single day."</p>
+        <span class="name">Dr. Samuel Tumwine</span>
+        <span class="year">Class of 1998 · Cardiologist</span>
+      </div>
+      <div class="alumni-card">
+        <p class="quote">"The friendships forged on these grounds are bonds for life. Ntare taught me
+          that brotherhood and excellence walk hand in hand."</p>
+        <span class="name">Hon. James Kagwa</span>
+        <span class="year">Class of 1985 · Public Servant</span>
+      </div>
+      <div class="alumni-card">
+        <p class="quote">"From the physics labs to the playing fields, every corner of Ntare prepared
+          me for the world. I am proud to say — Better Your Best is a way of life."</p>
+        <span class="name">Eng. Robert Mugisha</span>
+        <span class="year">Class of 2005 · Civil Engineer</span>
+      </div>
+    </div>
+  </section>
+
+         <section class="hours-section" id="hours">
+    <h2>School Hours</h2>
+    <table class="hours-table">
+      <thead>
+        <tr><th>Day</th><th>Opening</th><th>Closing</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>7:00 AM</td><td>5:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>7:00 AM</td><td>5:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>7:00 AM</td><td>5:00 PM</td></tr>
+        <tr><td>Thursday</td><td>7:00 AM</td><td>5:00 PM</td></tr>
+        <tr><td>Friday</td><td>7:00 AM</td><td>5:00 PM</td></tr>
+        <tr class="closed"><td>Saturday</td><td colspan="2">Closed</td></tr>
+        <tr class="closed"><td>Sunday</td><td colspan="2">Closed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+        
+        <footer style="opacity: 0.5;">
+            <div class="mainfooter">
+                  
+
+
+            <div class="contacts">
+                <p>Contact Us:</p>
+                <p>Phone: +256 700 123 456</p>
+                <p>Ntare Road, P.O Box 256 Mbarara</p>
+                <a href="mailto:ntare@ntareschool.sc.ug" style="text-decoration: none;">Email: ntare@ntareschool.sc.ug</a>
+            </div>
+
+            <div>
+                  <p>&copy; 2024 Ntare School. All rights reserved.</p>
+            </div>
+
+
+            </div>
+            
+            
         </footer>
+
+        
+
+        <script>
+            let slides = document.querySelectorAll(".slide");
+            let current = 0;
+
+            setInterval(() => {
+                slides[current].classList.remove("active");
+                current = (current + 1) % slides.length;
+                slides[current].classList.add("active");
+            }, 5000);
+        </script>
 
     </body>
 </html>

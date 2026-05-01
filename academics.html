@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Ntare School | Academics - Subjects, Sports & Discipline</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="shortcut icon" href="favicon-32x32.png">
     
     <style>
         * {
@@ -32,15 +34,16 @@
 
         /* Academics page header (simplified, only academics) */
         .academics-header {
-            background: linear-gradient(105deg, #e3e4f7 0%, #effef7 100%);
+            background:  linear-gradient(180deg, rgba(93, 112, 134, 0.35) 100%, rgba(11,37,69,0.85) 0%);
             padding: 60px 0 40px;
+            opacity: 0.95;
             border-bottom: 1px solid #d2c6ec;
         }
 
         .header-content h1 {
             font-size: 3rem;
             font-weight: 700;
-            color: #351a7b;
+            color: var(--cream);
             margin-bottom: 12px;
         }
 
@@ -50,22 +53,11 @@
             max-width: 700px;
         }
 
-        .school-tag {
-            display: inline-block;
-            background: #e3c9b1;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #15124f;
-            margin-bottom: 20px;
-        }
-
         /* Tabs for academics sections */
         .academics-tabs {
-            background: rgb(13, 14, 98);
-            border-bottom: 2px solid #f0e2d4;
-            background: url(medicalcamp.jpg);
+            background: rgb(225, 225, 241);
+            border-top: 2px solid #fad3ac;
+            background: linear-gradient(180deg, rgba(93, 112, 134, 0.35) 0%, rgba(11,37,69,0.85) 100%);
         }
 
         .tabs-nav {
@@ -82,39 +74,22 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            border-radius: 40px 40px 0 0;
-            transition: 0.2s;
-            font-family: inherit;
-            color: #0cac0a;
-            background:url(Lion2-1140x694.webp) ;
+            border-radius: 40px;
+            color: var(--cream);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .tab-btn.active {
-            background:
-    
-            #f9f0e8;
-            color: #3b36be;
-            border-bottom: 3px solid #0b095f;
-            background-color: rgba(249, 240, 232, 0.9);
-        }
-
-        .tab-btn:hover:not(.active) {
-            background: #098413;
-            color: #491f91;
+        .tab-btn:hover {
+           transition:all 1s ease;
+            color: #aba9e9;
+            border-bottom: 3px solid #bbbaec;
+            background: rgba(249, 240, 232, 0.9);
         }
 
         /* Main content */
-        .academics-main {
-            
-            background: rgba(62, 21, 151, 0.295);
-            background: url(physicsclass.jpg) no-repeat;
-            background-size: cover;
-            
-                
-        }
-
         .tab-pane {
-            display: none;
+            display: block;
             animation: forwards 0.35s ease;
         }
 
@@ -122,34 +97,15 @@
             display: block;
         }
 
-        @keyframes faiden {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(2);
-            }
-        }
 
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #11a634;
-            margin-bottom: 28px;
+            color: #4b4848;
+            margin-bottom: 10px;
             position: relative;
-            display: inline-block;
         }
 
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 60%;
-            height: 3px;
-            background: #2d0fa5;
-            margin-top: 8px;
-        }
 
         .grid-cards {
             display: grid;
@@ -164,21 +120,20 @@
             background: oklab(37.143% -0.00014 0.00518 / 0.408);
             border-radius: 24px;
             padding: 24px 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5);
             transition: all 0.2s;
-            border: 1px solid #f0e2d4;
+            border: 1px solid #f5d0ac;
         }
 
         .card-subject:hover,
         .sport-card:hover,
         .discipline-card:hover {
             transform: translateY(-4px);
-            border-color: #e2cbb6;
             box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.05);
         }
 
         .card-icon {
-            font-size: 2.4rem;
+            font-size: 2rem;
             margin-bottom: 12px;
         }
 
@@ -198,12 +153,12 @@
             padding: 6px 0;
             border-bottom: 1px dashed #f0ded0;
             display: flex;
-            align-items: center;
+            align-items: left;
             gap: 8px;
         }
 
         .subject-list li:before {
-            content: "📘";
+            content: "👨‍🎓";
             font-size: 0.85rem;
         }
 
@@ -267,7 +222,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 24px;
+            opacity:0.8;
             justify-content: space-between;
         }
 
@@ -277,7 +232,7 @@
         }
 
         .agri-badge {
-            background: #b45f2b;
+            background: #e7c3ad;
             color: white;
             padding: 6px 16px;
             border-radius: 40px;
@@ -344,10 +299,11 @@
 <body >
       <header class="header">
             <h1 class="logo">NTARE SCHOOL</h1>
+            <h2> Better Your Best</h2>
              <nav class="tabs">
                 <a href="index.html">Home</a>   
                 <a href="aboutus.html">About Us</a>
-                <a href="academics.html">Academics</a>
+                <a href="academics.html">Academics & Sports</a>
                 <a href="gallary.html">Gallery</a>
                 <a href="contactUs.html">Contact Us</a>
              </nav>
@@ -355,24 +311,21 @@
 
     <!-- academics header - pure academics focus -->
     <div class="academics-header">
-        <div class="container header-content">
-            <span class="school-tag">📖 NTARE SCHOOL • THE LION ROARS</span>
+        <div class=" header-content">
             <h1>Academics</h1>
-            <p>Rigorous curriculum, holistic development, and excellence in every discipline. Explore subjects, sports, and the character that defines the Lion spirit.</p>
+            <p>Rigorous curriculum, holistic development, and<em>excellence in every discipline.</em>  Explore subjects, sports, and the character that defines the Lion spirit.</p>
         </div>
     </div>
 
     <!-- Tabs navigation: SUBJECTS TAUGHT, SPORTS, DISCIPLINE -->
     <div class="academics-tabs">
         <div class="container tabs-nav">
-            <button class="tab-btn active" data-tab="subjects">📚 SUBJECTS TAUGHT</button>
-            <button class="tab-btn" data-tab="sports">⚽ SPORTS</button>
-            <button class="tab-btn" data-tab="discipline">🛡️ DISCIPLINE</button>
+            <a class="tab-btn" href="#subjects-pane" onclick="switchTab(event, 'subjects-pane')">📚 SUBJECTS TAUGHT</a>
+            <a class="tab-btn" href="#sports-pane" onclick="switchTab(event, 'sports-pane')">⚽ SPORTS</a>
+            <a class="tab-btn" href="#discipline-pane" onclick="switchTab(event, 'discipline-pane')">🛡️ DISCIPLINE</a>
         </div>
     </div>
-
-    <!-- Dynamic content -->
-    <div class="academics-main">
+    
         <div class="container">
             <!-- SUBJECTS PANE -->
             <div id="subjects-pane" class="tab-pane active-pane">
@@ -425,17 +378,15 @@
                     </div>
                 </div>
 
-                <!-- Agriculture practical highlight -->
+               
                 <div class="agriculture-spotlight">
                     <div class="agri-text">
                         <span class="agri-badge">🌾 HANDS-ON LEARNING</span>
                         <h3>Agriculture Students conducting a practical in the Agriculture Laboratory</h3>
                         <p>State-of-the-art agricultural lab with soil analysis tools, greenhouse projects, and sustainable farming demonstrations. Students engage in research and real-world agribusiness skills.</p>
                     </div>
-                    <div style="font-size: 3rem;">🌱🔬</div>
                 </div>
 
-                <!-- Scholarship & teachers info from original -->
                 <div class="info-highlights">
                     <div class="highlight-item">
                         <h4>🏆 Scholarship Facility</h4>
@@ -452,8 +403,7 @@
                 </div>
             </div>
 
-            <!-- SPORTS PANE -->
-            <div id="sports-pane" class="tab-pane">
+             <div id="sports-pane" class="tab-pane">
                 <div class="section-title">Sports & Athletics</div>
                 <p style="margin-bottom: 20px;">At Ntare School, sports build leadership, teamwork and resilience. Our Lions compete at district, national and East African levels. Modern facilities include a floodlit pitch, basketball courts, swimming pool and gymnasium.</p>
                 <div class="grid-cards">
@@ -547,10 +497,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
+           
     <!-- simple footer (only to close page professionally but no extra navigation) -->
-    <footer style="background: #102320; color: #e7dacb; padding: 28px 0; margin-top: 20px; text-align: center; font-size: 0.85rem;">
+    <footer style="background: #102320; color: #e7dacb; text-align: center; font-size: 0.85rem;">
         <div class="container">
             <p>📚 Ntare School — Academics Division | The Lion Roars | Excellence in Subjects, Sports & Discipline</p>
             <p style="margin-top: 8px;">📍 Ntare Road, Mbarara | 📞 039-323-8192 | ✉ ntare@ntareschool.sc.ug</p>
@@ -558,50 +509,21 @@
     </footer>
 
     <script>
-        // Tab switching logic for SUBJECTS / SPORTS / DISCIPLINE
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const subjectsPane = document.getElementById('subjects-pane');
-        const sportsPane = document.getElementById('sports-pane');
-        const disciplinePane = document.getElementById('discipline-pane');
-        
-        function activateTab(tabId) {
+        function switchTab(event, tabId) {
+            event.preventDefault();
+            
             // Hide all panes
-            subjectsPane.classList.remove('active-pane');
-            sportsPane.classList.remove('active-pane');
-            disciplinePane.classList.remove('active-pane');
+            const panes = document.querySelectorAll('.tab-pane');
+            panes.forEach(pane => pane.classList.remove('active-pane'));
             
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Show selected pane and mark button active
-            if (tabId === 'subjects') {
-                subjectsPane.classList.add('active-pane');
-                const activeBtn = document.querySelector('.tab-btn[data-tab="subjects"]');
-                if (activeBtn) activeBtn.classList.add('active');
-            } else if (tabId === 'sports') {
-                sportsPane.classList.add('active-pane');
-                const activeBtn = document.querySelector('.tab-btn[data-tab="sports"]');
-                if (activeBtn) activeBtn.classList.add('active');
-            } else if (tabId === 'discipline') {
-                disciplinePane.classList.add('active-pane');
-                const activeBtn = document.querySelector('.tab-btn[data-tab="discipline"]');
-                if (activeBtn) activeBtn.classList.add('active');
+            // Show the selected pane
+            const selectedPane = document.getElementById(tabId);
+            if (selectedPane) {
+                selectedPane.classList.add('active-pane');
+                selectedPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const tabValue = button.getAttribute('data-tab');
-                if (tabValue === 'subjects') activateTab('subjects');
-                else if (tabValue === 'sports') activateTab('sports');
-                else if (tabValue === 'discipline') activateTab('discipline');
-            });
-        });
-        
-        // Ensure that subjects pane is active by default
-        if (!subjectsPane.classList.contains('active-pane')) {
-            activateTab('subjects');
-        }
     </script>
+    
 </body>
 </html>
