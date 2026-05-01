@@ -168,13 +168,12 @@
                   background: linear-gradient(180deg, rgba(139, 181, 233, 0.35) 0%, rgba(11,37,69,0.85) 100%);
                   
             }
-            .slideshow {
+      .slideshow {
        
       flex: 1;
-      
+      overflow:hidden;
       height: 60vh;
       position: relative;
-      overflow: hidden;
       border-radius: 30px;
       border: 2px solid var(--cream);
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -371,6 +370,71 @@
     }
     .hours-table tr:hover:not(.closed) {
       background: rgba(212,160,23,0.18);
+    }
+
+    /* Responsive styles for the about section */
+    @media (max-width: 768px) {
+      .about {
+        max-width: 100%;
+        height: auto;
+        padding: 20px;
+        margin: 10px auto;
+      }
+      .about p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .about h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about {
+        padding: 15px;
+        border-radius: 20px;
+      }
+      .about p {
+        font-size: 13px;
+      }
+      .about h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Responsive styles for the hours table */
+    @media (max-width: 768px) {
+      .hours-section {
+        padding: 1rem;
+        margin: 1rem auto;
+      }
+      .hours-section h2 {
+        font-size: 1.5rem;
+      }
+      .hours-table {
+        font-size: 0.9rem;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+        border-radius: 10px;
+      }
+      .hours-table th, .hours-table td {
+        padding: 10px 12px;
+        min-width: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hours-section h2 {
+        font-size: 1.3rem;
+      }
+      .hours-table {
+        font-size: 0.8rem;
+      }
+      .hours-table th, .hours-table td {
+        padding: 8px 10px;
+        min-width: 70px;
+      }
     }
 
         </style>
